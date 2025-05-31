@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C&E ActuaryWise | Actuarial Consulting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a237e',
+                        secondary: '#5c6bc0',
+                        accent: '#03a9f4',
+                        neutral: '#f5f7fa',
+                        dark: '#121212'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-balance {
+                text-wrap: balance;
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.8s ease-in-out forwards;
+            }
+            .animate-slide-up {
+                animation: slideUp 0.8s ease-out forwards;
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="font-inter bg-white text-dark antialiased">
+    <!-- Navigation -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tight">
+                <span class="text-primary">C&E</span> ActuaryWise
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#services" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">Services</a>
+                <a href="#approach" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">Approach</a>
+                <a href="#team" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">Team</a>
+                <a href="#insights" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">Insights</a>
+                <a href="#contact" class="text-sm uppercase tracking-widest hover:text-accent transition-colors">Contact</a>
+            </nav>
+            <button id="menu-toggle" class="md:hidden text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white absolute w-full border-t border-gray-100 py-4 animate-fade-in">
+            <div class="container mx-auto px-6 flex flex-col space-y-4">
+                <a href="#services" class="text-sm uppercase tracking-widest hover:text-accent transition-colors py-2">Services</a>
+                <a href="#approach" class="text-sm uppercase tracking-widest hover:text-accent transition-colors py-2">Approach</a>
+                <a href="#team" class="text-sm uppercase tracking-widest hover:text-accent transition-colors py-2">Team</a>
+                <a href="#insights" class="text-sm uppercase tracking-widest hover:text-accent transition-colors py-2">Insights</a>
+                <a href="#contact" class="text-sm uppercase tracking-widest hover:text-accent transition-colors py-2">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="container mx-auto px-6 md:px-12 py-24 md:py-0">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-[clamp(2rem,6vw,4rem)] font-light leading-tight mb-8 animate-fade-in opacity-0" style="animation-delay: 0.2s">
+                    Strategic <span class="font-medium text-primary">Actuarial</span> Solutions
+                </h1>
+                <p class="text-[clamp(1rem,3vw,1.25rem)] text-gray-600 max-w-2xl mx-auto mb-12 text-balance animate-fade-in opacity-0" style="animation-delay: 0.4s">
+                    Delivering precision-driven consulting for risk management, financial modeling, and insurance strategy.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in opacity-0" style="animation-delay: 0.6s">
+                    <a href="#services" class="inline-block bg-primary text-white px-8 py-3 text-sm uppercase tracking-widest hover:bg-primary/90 transition-all duration-300">
+                        Our Services
+                    </a>
+                    <a href="#contact" class="inline-block border-2 border-primary px-8 py-3 text-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#services" class="text-dark">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-neutral">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,4vw,2.5rem)] font-light mb-4">Specialized Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Tailored actuarial solutions for insurance companies, financial institutions, and corporate clients.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                    <div class="text-primary text-3xl mb-6">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">Risk Modeling</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Quantitative analysis of financial risks using advanced statistical models, helping clients understand and mitigate potential exposures.
+                    </p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                    <div class="text-primary text-3xl mb-6">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">Valuation Services</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Accurate valuation of insurance liabilities, employee benefits, and financial instruments for accounting and regulatory compliance.
+                    </p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                    <div class="text-primary text-3xl mb-6">
+                        <i class="fa-solid fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">Insurance Strategy</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Strategic consulting to optimize product design, pricing models, and underwriting practices for competitive market positioning.
+                    </p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                    <div class="text-primary text-3xl mb-6">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">Regulatory Compliance</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Guidance on navigating complex actuarial regulations, including Solvency II, IFRS 17, and local regulatory frameworks.
+                    </p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                    <div class="text-primary text-3xl mb-6">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">Actuarial Analytics</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Data-driven insights using advanced analytics and machine learning to enhance decision-making and business performance.
+                    </p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                    <div class="text-primary text-3xl mb-6">
+                        <i class="fa-solid fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">Pension & Benefits</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Expert advice on pension fund management, employee benefit design, and retirement plan optimization for corporate clients.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section id="approach" class="py-24">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-accent text-sm uppercase tracking-widest mb-4 inline-block">Our Methodology</span>
+                    <h2 class="text-[clamp(1.5rem,4vw,2.5rem)] font-light mb-6">Strategic Actuarial Approach</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        At ActuaryWise, we blend technical expertise with business acumen to deliver solutions that drive tangible results. Our approach is rooted in three core principles:
+                    </p>
+                    
+                    <div class="space-y-8 mb-8">
+                        <div>
+                            <div class="flex items-start mb-3">
+                                <div class="bg-primary/10 text-primary rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa-solid fa-target"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-medium mb-2">Precision & Accuracy</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        Rigorous modeling and analysis to ensure our actuarial calculations are reliable and actionable.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-start mb-3">
+                                <div class="bg-primary/10 text-primary rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-medium mb-2">Strategic Insight</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        Translating actuarial data into strategic recommendations that align with business objectives.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-start mb-3">
+                                <div class="bg-primary/10 text-primary rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa-solid fa-handshake"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-medium mb-2">Collaborative Partnership</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        Working closely with clients to understand their unique needs and deliver tailored solutions.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-block border-2 border-primary px-8 py-3 text-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300">
+                        Discuss Your Needs
+                    </a>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://picsum.photos/id/1015/800/1000" alt="Actuarial Consulting" class="w-full h-[700px] object-cover rounded-xl shadow-xl">
+                    <div class="absolute -bottom-8 -right-8 bg-white p-6 shadow-xl rounded-lg max-w-xs">
+                        <p class="text-sm text-gray-500 mb-2">Data-Driven Decisions</p>
+                        <p class="text-2xl font-bold">98%<br><span class="text-gray-500 text-lg font-normal">Client Satisfaction</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 bg-neutral">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,4vw,2.5rem)] font-light mb-4">Our Expert Team</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Meet the experienced actuaries and consultants behind our strategic solutions.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <!-- 修改图片链接 -->
+                        <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378089139387236373/olesyareitman_121258569_448658256101676_7447674575721582213_n.jpg?ex=683b5506&is=683a0386&hm=a4881a01225a9c7218b6cb259637c8b1900eae1adc2a7e901c1ad5bbb50b5482&" alt="Emma Smith" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                                
+                                </a>
+                                
+                                   
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-medium mb-1">Emma Smith</h3>
+                    <p class="text-accent text-sm mb-3">Founding Actuary</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        20+ years of experience in life insurance and pension consulting, former senior actuary at major financial institutions.
+                    </p>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378084662689267963/1.png?ex=683b50db&is=6839ff5b&hm=a5df994b7c71766bdd29d04dff007178fd26ab8527b73d8f1cba377b381b2541&" alt="Caren Wong" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                                
+                                </a>
+                                
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-medium mb-1">Caren Wong</h3>
+                    <p class="text-accent text-sm mb-3">Risk Management Expert</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Specialist in enterprise risk management and regulatory compliance with expertise in Solvency II and IFRS 17.
+                    </p>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378144477109031042/f90682a3672772e8.png?ex=683b8890&is=683a3710&hm=4a06c213025bac1fa39fb9db8aac0c1da323993ed5a96bf986e0e5fd3ad4ba24&" alt="Snake Zhang" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                               
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-medium mb-1">Snake Zhang</h3>
+                    <p class="text-accent text-sm mb-3">Analytics Director</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Data science expert specializing in predictive modeling and advanced analytics for insurance and financial services.
+                    </p>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378145781479116810/image.png?ex=683b89c7&is=683a3847&hm=fe9941f7430e1d786c187e7b1d7ebf02498f1568da7e51cf05a117fd8521cacd&" alt="Brian Johnson" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="flex space-x-3">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-medium mb-1">Brian Johnson</h3>
+                    <p class="text-accent text-sm mb-3">Pension Specialist</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Expert in pension scheme management, retirement planning, and employee benefit design for corporate clients.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="py-24">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,4vw,2.5rem)] font-light mb-4">Actuarial Insights</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Stay informed with our latest thought leadership on actuarial trends and industry developments.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378134646080012419/AI.png?ex=683b7f68&is=683a2de8&hm=3606732a85430e7e0779d35b636b1e599f9750ced74f5a6a82e72d92d0dc397a&" alt="Actuarial Trends" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-accent uppercase tracking-wider">Trends</span>
+                        <h3 class="text-xl font-medium mb-3 mt-2">The Impact of AI on Actuarial Science</h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Exploring how artificial intelligence and machine learning are transforming traditional actuarial practices and risk assessment.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary hover:text-accent transition-colors text-sm">
+                            Read More <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/1048/800/600" alt="Regulatory Compliance" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-accent uppercase tracking-wider">Regulations</span>
+                        <h3 class="text-xl font-medium mb-3 mt-2">IFRS 17 Implementation: Key Challenges</h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            A comprehensive guide to navigating the complexities of IFRS 17 and ensuring compliance for insurance entities.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary hover:text-accent transition-colors text-sm">
+                            Read More <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378134849805746306/Four-Steps-of-the-Risk-Management-Process-1-1536x1536.png?ex=683b7f98&is=683a2e18&hm=27440d06205676946e67daec4786c1ace52f2cfe62aa82ddc532295f6b2a37c5&" alt="Risk Management" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-accent uppercase tracking-wider">Strategy</span>
+                        <h3 class="text-xl font-medium mb-3 mt-2">Enterprise Risk Management in Insurance</h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Best practices for developing and implementing effective enterprise risk management frameworks in the insurance industry.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary hover:text-accent transition-colors text-sm">
+                            Read More <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-primary px-8 py-3 text-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300">
+                    View All Insights
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-16 bg-neutral">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-light mb-4">Our Valued Clients</h2>
+                <p class="text-gray-600">Proud partners in financial innovation</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
+                <div class="flex items-center justify-center w-full h-20 bg-gray-100 rounded-lg p-4">
+                    <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378127254428844182/3.png?ex=683b7885&is=683a2705&hm=762ef9ee5d9de3117229eb11b4ff22f2e265cbd9d805ccd168fba066a8ed71fd&" 
+                         alt="Client Logo" 
+                         class="max-h-12 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 object-contain">
+                </div>
+                <div class="flex items-center justify-center w-full h-20 bg-gray-100 rounded-lg p-4">
+                    <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378127254714060830/4.png?ex=683b7885&is=683a2705&hm=aeef9203a58ff6972328593c4cc2198af57ef19ccd2c99dd8ff786dd34a1c856&" 
+                         alt="Client Logo" 
+                         class="max-h-12 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 object-contain">
+                </div>
+                <div class="flex items-center justify-center w-full h-20 bg-gray-100 rounded-lg p-4">
+                    <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378127255116583032/cropped-620A014D-827F-470B-8E91-990A4222CAE8-32x32.jpeg?ex=683b7885&is=683a2705&hm=50e51886671e7057f4279fb4516e790688044f739e248921514754b0b848f842&" 
+                         alt="Client Logo" 
+                         class="max-h-12 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 object-contain">
+                </div>
+                <div class="flex items-center justify-center w-full h-20 bg-gray-100 rounded-lg p-4">
+                    <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378127255540338808/156656ce01e92c01.png?ex=683b7886&is=683a2706&hm=dab0d6c32695a1345bad9cbf1efb03e1d42719f485808bcb7858841945f2d309&" 
+                         alt="Client Logo" 
+                         class="max-h-12 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 object-contain">
+                </div>
+                <div class="flex items-center justify-center w-full h-20 bg-gray-100 rounded-lg p-4">
+                    <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378127255812837457/1.png?ex=683b7886&is=683a2706&hm=49cc0434e08edc59ead8b0ff70f4775df642552ea9ab851ee6fbc019df916785&" 
+                         alt="Client Logo" 
+                         class="max-h-12 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 object-contain">
+                </div>
+                <div class="flex items-center justify-center w-full h-20 bg-gray-100 rounded-lg p-4">
+                    <img src="https://cdn.discordapp.com/attachments/1378084541473751162/1378127256076943460/2.png?ex=683b7886&is=683a2706&hm=f3778faa3930429f949741f453b537672eea0af5bbd6bf1516e0985dbe531db0&" 
+                         alt="Client Logo" 
+                         class="max-h-12 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 object-contain">
+                </div>
+            </div>
+        </div>
+    </section>
+                        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-primary text-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <span class="text-accent text-sm uppercase tracking-widest mb-4 inline-block">Get In Touch</span>
+                    <h2 class="text-[clamp(1.5rem,4vw,2.5rem)] font-light mb-6">Let's Discuss Your Actuarial Needs</h2>
+                    <p class="text-white/80 mb-8 leading-relaxed">
+                        Whether you're looking to optimize your risk management strategy, ensure regulatory compliance, or need expert advice on pension schemes, our team of actuaries is ready to help.
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="text-accent text-xl mr-4 mt-1">
+                                <i class="fa-solid fa-map-marker"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-1">Office Location</h4>
+                                <p class="text-white/80">254 Des Voeux Rd Central, Sheung Wan, Hong Kong</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-accent text-xl mr-4 mt-1">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-1">Email</h4>
+                                <p class="text-white/80">dafanibaba@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-accent text-xl mr-4 mt-1">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-1">Phone</h4>                                
+                                <p class="text-white/80">+16265084014</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white/5 p-8 rounded-xl">
+                        <h3 class="text-xl font-medium mb-6">Send us a Message</h3>
+                        
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full bg-white/10 border border-white/20 rounded px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Your name">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full bg-white/10 border border-white/20 rounded px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Your email">
+                            </div>
+                            
+                            <div>
+                                <label for="company" class="block text-sm font-medium mb-2">Company</label>
+                                <input type="text" id="company" class="w-full bg-white/10 border border-white/20 rounded px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Your company">
+                            </div>
+                            
+                            <div>
+                                <label for="service" class="block text-sm font-medium mb-2">Service Interest</label>
+                                <select id="service" class="w-full bg-white/10 border border-white/20 rounded px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-accent">
+                                    <option value="">Select a service</option>
+                                    <option value="risk-modeling">Risk Modeling</option>
+                                    <option value="valuation">Valuation Services</option>
+                                    <option value="insurance-strategy">Insurance Strategy</option>
+                                    <option value="regulatory-compliance">Regulatory Compliance</option>
+                                    <option value="actuarial-analytics">Actuarial Analytics</option>
+                                    <option value="pension-benefits">Pension & Benefits</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                                <textarea id="message" rows="5" class="w-full bg-white/10 border border-white/20 rounded px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Your message"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="bg-accent text-white px-8 py-3 text-sm uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-primary text-white/80 border-t border-white/10">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-6">C&E ActuaryWise</h3>
+                    <p class="text-sm leading-relaxed mb-6">
+                        Providing specialized actuarial consulting services to insurance companies, financial institutions, and corporations worldwide.
+                    </p>
+                    <p class="text-sm">
+                        © 2025 C&E ActuaryWise. All rights reserved.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#services" class="hover:text-accent transition-colors">Services</a></li>
+                        <li><a href="#approach" class="hover:text-accent transition-colors">Approach</a></li>
+                        <li><a href="#team" class="hover:text-accent transition-colors">Team</a></li>
+                        <li><a href="#insights" class="hover:text-accent transition-colors">Insights</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-6">Services</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-accent transition-colors">Risk Modeling</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Valuation Services</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Insurance Strategy</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Regulatory Compliance</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Actuarial Analytics</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Pension & Benefits</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium mb-6">Newsletter</h4>
+                    <p class="text-sm mb-4">Subscribe to receive updates on actuarial trends and insights.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="bg-white/10 border border-white/20 rounded-l px-4 py-2 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-accent w-full">
+                        <button type="submit" class="bg-accent text-white px-4 py-2 rounded-r hover:bg-white hover:text-primary transition-all duration-300">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm mb-4 md:mb-0">Privacy Policy | Terms of Service</p>
+                <div class="flex space-x-6 text-sm">
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md', 'py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md', 'py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Scroll animation for elements
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('[data-aos]');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight * 0.85) {
+                    element.classList.add('animate-fade-in');
+                }
+            });
+        };
+        
+        // Initial check on page load
+        window.addEventListener('load', animateOnScroll);
+        // Check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
